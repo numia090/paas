@@ -19,7 +19,7 @@ yellow() {
 
 clear
 
-
+uuid="5fc374d8-b916-4464-9cba-00d76ba42774"
 kill -9 $(ps -ef | grep web | grep -v grep | awk '{print $2}') >/dev/null 2>&1
 rm -f web config.json
 yellow "开始安装..."
@@ -29,10 +29,7 @@ RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)
 mv xray web
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
 wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
-read -rp "请设置UUID（如无设置则使用脚本默认的）：" uuid
-if [[ -z ${uuid} ]]; then
-    uuid="5fc374d8-b916-4464-9cba-00d76ba42774"
-fi
+
 cat <<EOF > config.json
 {
     "log":{
