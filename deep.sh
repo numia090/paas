@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#uuid改一下
+uuid="5fc374d8-b916-4464-9cba-00d76ba42774"
+
 RED="\033[31m"
 GREEN="\033[32m"
 YELLOW="\033[33m"
@@ -17,9 +20,7 @@ yellow() {
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 
-clear
 
-uuid="5fc374d8-b916-4464-9cba-00d76ba42774"
 kill -9 $(ps -ef | grep web | grep -v grep | awk '{print $2}') >/dev/null 2>&1
 rm -f web config.json
 yellow "开始安装..."
